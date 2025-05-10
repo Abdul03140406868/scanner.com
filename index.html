@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AudioScan | Hidden Audio Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6C5CE7">
+</head>
+<body>
+    <div class="app-container">
+        <!-- App Header -->
+        <header class="app-header">
+            <h1>AudioScan</h1>
+            <button class="icon-btn" id="helpBtn">?</button>
+        </header>
+
+        <!-- Permission Screen -->
+        <div class="permission-screen" id="permissionScreen">
+            <div class="permission-content">
+                <div class="permission-icon">🔍</div>
+                <h2>Camera Access Needed</h2>
+                <p>To scan images for hidden audio, we need access to your camera.</p>
+                <button class="primary-btn" id="allowCameraBtn">Allow Camera Access</button>
+            </div>
+        </div>
+
+        <!-- Scanner View -->
+        <main class="scanner-view hidden" id="scannerView">
+            <div class="scanner-overlay">
+                <div class="scan-frame pulse-animation"></div>
+                <div class="scan-line"></div>
+                <div class="corner top-left"></div>
+                <div class="corner top-right"></div>
+                <div class="corner bottom-left"></div>
+                <div class="corner bottom-right"></div>
+            </div>
+            <video id="cameraView" autoplay playsinline></video>
+        </main>
+
+        <!-- Controls -->
+        <div class="controls hidden" id="controls">
+            <button class="control-btn" id="switchCamBtn">
+                <span class="icon">🔄</span>
+            </button>
+            <button class="primary-btn" id="scanBtn">
+                <span class="icon">🔍</span>
+                <span class="text">Scan</span>
+            </button>
+            <button class="control-btn" id="galleryBtn">
+                <span class="icon">🖼️</span>
+            </button>
+        </div>
+
+        <!-- Results View -->
+        <div class="results-view hidden" id="resultsView">
+            <div class="results-content">
+                <h2>Hidden Audio Found!</h2>
+                <div class="audio-player">
+                    <div class="waveform-container">
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                    </div>
+                    <audio controls id="audioPlayer"></audio>
+                </div>
+                <button class="secondary-btn" id="newScanBtn">
+                    <span class="icon">🔄</span>
+                    <span class="text">Scan Again</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Status Toast -->
+        <div class="toast hidden" id="toast"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
